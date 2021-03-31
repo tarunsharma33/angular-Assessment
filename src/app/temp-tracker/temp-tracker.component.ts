@@ -10,6 +10,10 @@ export class TempTrackerComponent implements OnInit {
   Form!: FormGroup;
   submitted = false;
   fianlArrray: any[] = [];
+  min!: number;
+  max!: number;
+  mean!: number;
+  mode!: number;
   constructor() { }
 
   ngOnInit(): void {
@@ -37,6 +41,10 @@ export class TempTrackerComponent implements OnInit {
       if (n > 0 && n < 150) {
         if (n === n && (n % 1 === 0)) {
           this.fianlArrray.push(n);
+          this.min = Math.min.apply(null, this.fianlArrray);
+          this.max = Math.max.apply(null, this.fianlArrray);
+          this.mean = Number(this.calculate_mean().toFixed(2));
+          this.mode = this.calculate_mode();
           return this.fianlArrray;
         }
         else {
@@ -51,21 +59,14 @@ export class TempTrackerComponent implements OnInit {
       return 'Temperature should be integer';
     }
   }
-  get_min(): number {
-    return Math.min.apply(null, this.fianlArrray);
-  }
-  get_max(): number {
-    return Math.max.apply(null, this.fianlArrray);
-
-  }
-  get_mean(): number {
+  calculate_mean(): number {
     let totalSum = 0;
     this.fianlArrray.forEach((element) => {
       totalSum += element;
     });
     return totalSum / this.fianlArrray.length;
   }
-  get_mode(): number {
+  calculate_mode(): number {
     let mode = 0;
     for (let i = 0; i < this.fianlArrray.length; i++) {
       for (let j = 0; j < i; j++) {
@@ -75,6 +76,21 @@ export class TempTrackerComponent implements OnInit {
       }
     }
     return mode;
+  }
+
+  get_min(): number {
+
+    return this.min;
+  }
+  get_max(): number {
+    return this.max;
+
+  }
+  get_mean(): number {
+    return this.mean;
+  }
+  get_mode(): number {
+    return this.mode;
 
   }
 }

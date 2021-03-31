@@ -75,7 +75,7 @@ describe('RegisterComponent', () => {
     expect(phoneNumber.pristine).toBeTruthy();
     expect(phoneNumber.hasError('required')).toBeTruthy();
   });
-  it('phoneNumber value should pass validation', () => {
+  it('phoneNumber value should pass required validation', () => {
     const phoneNumber = component.registerForm.controls.phoneNumber;
     expect(phoneNumber.valid).toBeFalsy();
     expect(phoneNumber.pristine).toBeTruthy();
@@ -85,6 +85,24 @@ describe('RegisterComponent', () => {
   it('should accept only digit', () => {
     const phoneNumber = component.registerForm.controls.phoneNumber;
     phoneNumber.setValue('abc');
+    expect(phoneNumber.hasError('pattern')).toBeTruthy();
+  });
+  it('phoneNumber value should pass validation', () => {
+    const phoneNumber = component.registerForm.controls.phoneNumber;
+    phoneNumber.setValue(7859997932);
     expect(phoneNumber.hasError('pattern')).toBeFalsy();
+  });
+  it('blank country value should fail validation', () => {
+    const country = component.registerForm.controls.country;
+    expect(country.valid).toBeFalsy();
+    expect(country.pristine).toBeTruthy();
+    expect(country.hasError('required')).toBeTruthy();
+  });
+  it('country value should pass validation', () => {
+    const country = component.registerForm.controls.country;
+    expect(country.valid).toBeFalsy();
+    expect(country.pristine).toBeTruthy();
+    country.setValue('IN');
+    expect(country.hasError('required')).toBeFalsy();
   });
 });

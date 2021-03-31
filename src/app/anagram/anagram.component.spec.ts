@@ -8,9 +8,9 @@ describe('AnagramComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnagramComponent ]
+      declarations: [AnagramComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +21,11 @@ describe('AnagramComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('value should fail validation', () => {
+    expect(component.is_anagram('cellar', 'recall')).toBe(true);
+  });
+  it('value should pass validation', () => {
+    expect(component.is_anagram('arm', 'elbow')).toBe(false);
   });
 });
