@@ -1,0 +1,20 @@
+<p>temp-tracker works!</p>
+
+<form [formGroup]="Form" (ngSubmit)="submit()">
+
+
+    <div class="center">
+        <label for="phone">Enter Number</label>
+        <input id="phone" class="form-control" type="number" name="firstnumber" formControlName="firstnumber" />
+        <p class="error" *ngIf="submitted && Form.controls.firstnumber.hasError('required')">Please enter number.</p>
+        <p class="error" *ngIf="submitted && Form.controls.firstnumber.hasError('pattern')">Please enter only
+            digit.</p>
+
+    </div>
+
+
+    <div class="center">
+        <button type="submit">Submit</button>
+    </div>
+
+</form>

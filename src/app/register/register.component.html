@@ -1,0 +1,47 @@
+<h1 class="center">Register </h1>
+
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+    <div class="center">
+        <label for="fn">First Name</label>
+        <input id="fn" class="form-control" type="text" name="firstname" formControlName="firstname" />
+        <p class="error" *ngIf="submitted && registerForm.controls.firstname.hasError('required')">Please enter first
+            name.</p>
+        <p class="error" *ngIf="submitted && registerForm.controls.firstname.hasError('minlength')">First name should be
+            greater than 5
+            characters.</p>
+
+    </div>
+    <div class="center">
+        <label for="ln">Last Name</label>
+        <input id="ln" class="form-control" type="text" name="lastname" formControlName="lastname" />
+        <p class="error" *ngIf="submitted && registerForm.controls.lastname.hasError('required')">Please enter last
+            name.</p>
+        <p class="error" *ngIf="submitted && registerForm.controls.lastname.hasError('minlength')">Last name should be
+            greater than 5
+            characters.
+        </p>
+    </div>
+    <div class="center">
+        <label for="phone">Phone Nunber</label>
+        <input id="phone" class="form-control" type="number" name="phoneNumber" formControlName="phoneNumber" />
+        <p class="error" *ngIf="submitted && registerForm.controls.phoneNumber.hasError('required')">Please enter phone
+            number.</p>
+
+        <p class="error" *ngIf="submitted && registerForm.controls.phoneNumber.hasError('pattern')">Please enter only
+            digit.</p>
+    </div>
+    <div class="center">
+        <label for="countryId">Country</label>
+        <select id="countryId" class="form-control" formControlName="country">
+            <option value="">select the country</option>
+            <option value="IN">IN</option>
+            <option value="UK">UK</option>
+        </select>
+        <p class="error" *ngIf="submitted && registerForm.controls.country.hasError('required')">Please select country
+        </p>
+    </div>
+    <div class="center">
+        <button type="submit">Submit</button>
+    </div>
+
+</form>

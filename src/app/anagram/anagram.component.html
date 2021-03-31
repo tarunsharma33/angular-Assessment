@@ -1,0 +1,25 @@
+<h1 class="center">Anagram!</h1>
+
+<form [formGroup]="Form" (ngSubmit)="submit()">
+
+
+    <div class="center">
+        <label for="phone">First string</label>
+        <input id="phone" class="form-control" type="text" name="firststring" formControlName="firststring" />
+        <p class="error" *ngIf="submitted && Form.controls.firststring.hasError('required')">Please enter first
+            string.</p>
+
+    </div>
+    <div class="center">
+        <label for="phone">second string</label>
+        <input id="phone" class="form-control" type="text" name="secondstring" formControlName="secondstring" />
+        <p class="error" *ngIf="submitted && Form.controls.secondstring.hasError('required')">Please enter first
+            string.</p>
+
+    </div>
+
+    <div class="center">
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
