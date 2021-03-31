@@ -15,16 +15,12 @@ export class TempTrackerComponent implements OnInit {
   mean!: number;
   mode!: number;
   constructor() { }
-
   ngOnInit(): void {
     this.initForm();
   }
-
-
   initForm(): void {
     this.Form = new FormGroup({
       firstnumber: new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)])
-
     });
   }
   submit(): void {
@@ -33,7 +29,6 @@ export class TempTrackerComponent implements OnInit {
       console.log(this.insert(this.Form.controls.firstnumber.value));
       this.Form.reset();
       this.submitted = false;
-
     }
   }
   insert(n: number): any {
@@ -77,21 +72,17 @@ export class TempTrackerComponent implements OnInit {
     }
     return mode;
   }
-
   get_min(): number {
-
     return this.min;
   }
   get_max(): number {
     return this.max;
-
   }
   get_mean(): number {
     return this.mean;
   }
   get_mode(): number {
     return this.mode;
-
   }
 }
 

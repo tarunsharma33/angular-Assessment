@@ -6,7 +6,6 @@ import { TempTrackerComponent } from './temp-tracker.component';
 describe('TempTrackerComponent', () => {
   let component: TempTrackerComponent;
   let fixture: ComponentFixture<TempTrackerComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TempTrackerComponent],
@@ -14,13 +13,11 @@ describe('TempTrackerComponent', () => {
     })
       .compileComponents();
   });
-
   beforeEach(() => {
     fixture = TestBed.createComponent(TempTrackerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -42,7 +39,6 @@ describe('TempTrackerComponent', () => {
     component.insert(7);
     expect(component.get_min()).toEqual(2);
   });
-
   it('should get max. element value', () => {
     component.insert(10);
     component.insert(2);
