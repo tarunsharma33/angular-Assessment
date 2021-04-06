@@ -26,7 +26,7 @@ export class TempTrackerComponent implements OnInit {
   submit(): void {
     this.submitted = true;
     if (this.Form.valid) {
-      console.log(this.insert(this.Form.controls.firstnumber.value));
+      
       this.Form.reset();
       this.submitted = false;
     }
