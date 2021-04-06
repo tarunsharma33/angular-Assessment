@@ -26,7 +26,6 @@ export class TempTrackerComponent implements OnInit {
   submit(): void {
     this.submitted = true;
     if (this.Form.valid) {
-      
       this.Form.reset();
       this.submitted = false;
     }
